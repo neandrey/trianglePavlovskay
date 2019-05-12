@@ -7,6 +7,7 @@
 class Triangle{
   public:
     Triangle(Point, Point, Point, const char*);
+		Triangle(Triangle&);
     Triangle(const char*);
     ~Triangle();
     Point Get_v1() const
@@ -20,6 +21,8 @@ class Triangle{
     void Show() const;
     void Move(Point);
     //void ShowSideAndArea() const;
+		bool operator>(const Triangle&) const;
+		Triangle& operator=(Triangle&);
   public:
     static int count;
   private:

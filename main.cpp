@@ -46,10 +46,10 @@ int main(){
 }
 
 int Menu(){
-  cout << "\n================ ������� ���� ======================= " << endl;
-  cout << "1 - show all object\t 3 - find max triangle" << endl;
-  cout << "2 - move triangle\t\t 4 - included triangle" << endl;
-  cout << "\t\t 5 - exit" << endl;
+  cout << "\n================ Главное меню ======================= " << endl;
+  cout << "1 - Показать все объекты.\t 3 - Найти максим. треугольник" << endl;
+  cout << "2 - Переместить треугольник.\t 4 - Добавить треугольник." << endl;
+  cout << "\t\t 5 - Выход." << endl;
 
   return GetNumber(1, 5);
 }
@@ -61,7 +61,7 @@ int GetNumber(int min, int max){
     if((number >= min) && (number <= max) && (cin.peek() == '\n'))
       break;
     else{
-      cout << "Return enter number " << min << " to " << max << endl;
+      cout << "Введите номер от: " << min << " до " << max << endl;
       cin.clear();
       while(cin.get() != '\n'){};
     }
@@ -70,12 +70,12 @@ int GetNumber(int min, int max){
 }
 //-------------------------------
 void ExitBack(){
-  cout << "push enter" << endl;
+  cout << "нажмите enter" << endl;
   cin.get(); cin.get();
 }
 //--------------------------------
 void Show(Triangle* p_tria[], int k){
-  cout << "========== Triangle ============" << endl;
+  cout << "========== Треугольник ============" << endl;
   for(int i = 0; i < k; ++i)
     p_tria[i]->Show();
  /* for(int i = 0; i < k; ++i)
@@ -85,31 +85,39 @@ void Show(Triangle* p_tria[], int k){
 }
 //--------------------------------
 void Move(Triangle* p_tria[], int k){
-  cout << "=========== Replace ============" << endl;
-  cout << "enter number triangle (1 to " << k << " ): ";
+  cout << "=========== Перемещение ============" << endl;
+  cout << "Введите номер треугольника от 1 до " << k << " ): ";
   int i = GetNumber(1, k) - 1;
   p_tria[i]->Show();
 
   Point dp;
-  cout << "Enter replace x: ";
+  cout << "Перемещение по x: ";
   dp.x = GetDouble();
-  cout << "Enter replace y: ";
+  cout << "Перемещение по y: ";
   dp.y = GetDouble();
   
   p_tria[i]->Move(dp);
-  cout << "new place triangle is: " << endl;
+  cout << "Новые координаты треугольника: " << endl;
   p_tria[i]->Show();
   ExitBack();
 }
 //--------------------------------
 void FindMax(Triangle* p_tria[], int k){
-  cout << "====Max Triangle================" << endl;
+  cout << "====Максимальный треугольник================" << endl;
   //function code;
+	// Создаем объект triaMax, который по завершению поиска
+	// будет идентичен максимальному значению.
+	Triangle triaMax("triaMax");
+	triaMax = *p_tria[0];
+	for(int i = 1; i < k; i++)
+		if(*p_tria[i] > triaMax)
+			triaMax = *p_tria[i];
+	cout << "Максимальный треугольник: " << triaMax.GetName() << endl;
   ExitBack();
 }
 //---------------------------------
 void IsIncluded(Triangle* p_tria[], int k){
-  cout << "==========Include============" << endl;
+  cout << "==========вставка треугольника============" << endl;
   //function code;
   ExitBack();
 }
