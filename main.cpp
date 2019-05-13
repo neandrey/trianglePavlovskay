@@ -119,6 +119,18 @@ void FindMax(Triangle* p_tria[], int k){
 void IsIncluded(Triangle* p_tria[], int k){
   cout << "==========вставка треугольника============" << endl;
   //function code;
+  cout << "Enter number first triangle (to 1 do " << k << "): ";
+  int i1 = GetNumber(1, k) - 1;
+  cout << "Enter number second triangle (to 1 do " << k << "): ";
+  int i2 = GetNumber(1, k) - 1;
+  
+  if(TriaInTria(*p_tria[i1], *p_tria[i2]))
+    cout << p_tria[i1]->GetName() << " - enter in - "
+      << p_tria[i2]->GetName() << endl;
+  else
+    cout << p_tria[i1]->GetName() << " - not enter in - "
+     << p_tria[i2]->GetName() << endl; 
+
   ExitBack();
 }
 //----------------------------------------------
@@ -137,3 +149,4 @@ double GetDouble(){
   return value;
 }
 //------------------------------------------------
+

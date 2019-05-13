@@ -18,7 +18,7 @@ Triangle::Triangle(Point _v1, Point _v2, Point _v3, const char* ident):
 
   count++;
 
-  sprintf(buf, "Треугольник %d", count);
+  sprintf(buf, "Triangle %d", count);
   name = new char[strlen(buf) + 1];
   strcpy(name, buf);
   a = sqrt((v1.x - v2.x) * (v1.x - v2.x) + (v1.y - v2.y) * (v1.y - v2.y));
@@ -37,9 +37,9 @@ Triangle::Triangle(Triangle& tria)
 
 	cout << "Конструктор копирования для: " << tria.objID << endl;
 
-	objID = new char[strlen(tria.objID) + strlen("(копия)") + 1];
+	objID = new char[strlen(tria.objID) + strlen("(copy)") + 1];
 	strcpy(objID, tria.objID);
-	strcat(objID, "(копия)");
+	strcat(objID, "(copy)");
 
 	name = new char[strlen(tria.name) + 1];
 	strcpy(name, tria.name);
@@ -56,7 +56,7 @@ Triangle::Triangle(const char* ident)
   strcpy(objID, ident);
 
   count++;
-  sprintf(buf, "Треугольник %d", count);
+  sprintf(buf, "Triangle %d", count);
   name = new char[strlen(buf) + 1];
   strcpy(name, buf);
   a = b = c  = 0;
@@ -122,6 +122,16 @@ Triangle& Triangle::operator=(Triangle& tria)
 	a = tria.a; b = tria.b; c = tria.c;
 	return *this;
 }
+//-----------------------------------------------
+bool TriaInTria(Triangle tria1, Triangle tria2){
+  Point v1 = tria1.Get_v1();
+  Point v2 = tria1.Get_v2();
+  Point v3 = tria1.Get_v3();
 
+  if (v1.InTriangle(tria2) &&
+      v2.InTriangle(tria2) &&
+      v3.InTriangle(tria2));
+  return true;
+}
 
 
