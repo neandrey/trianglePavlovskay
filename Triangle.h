@@ -23,7 +23,7 @@ class Triangle{
     //void ShowSideAndArea() const;
 		bool operator>(const Triangle&) const;
 		Triangle& operator=(Triangle&);
-		friend bool TriaInTria(Triangle, Triangle);
+//		friend bool TriaInTria(Triangle, Triangle);
   public:
     static int count;
   private:

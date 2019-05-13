@@ -2,7 +2,7 @@
 #include <iostream>
 #include <math.h>
 #include "Point.h"
-#include "Triangle.h"
+#include "Triangle.h" 
 using namespace std;
 //--------------------------
 void Point::Show() const{
@@ -23,12 +23,12 @@ Point Point::operator- (Point& p)
   return Point(x - p.x, y - p.y);
 }
 //-------------------------------
-double Point::Length() {
+double Point::Length() const {
   return sqrt(x*x + y*y);
 }
 //-------------------------------
-
-ORIENT Point::Classify(Point& beg_p, Point& end_p) {
+/*
+ORIENT Point::Classify(Point& beg_p, Point& end_p) const {
   Point p0 = *this;
   Point a = end_p - beg_p;
   Point b = p0 - beg_p;
@@ -42,8 +42,10 @@ ORIENT Point::Classify(Point& beg_p, Point& end_p) {
 
   return BETWEEN;
 }
+*/
 //-----------------------------------
-bool Point::InTriangle(Triangle& tria) {
+/*
+bool Point::InTriangle(Triangle& tria) const {
   ORIENT or1 = Classify(tria.Get_v1(), tria.Get_v2());
   ORIENT or2 = Classify(tria.Get_v2(), tria.Get_v3());
   ORIENT or3 = Classify(tria.Get_v3(), tria.Get_v1());
@@ -55,4 +57,5 @@ bool Point::InTriangle(Triangle& tria) {
   else
     return false;
 }
-
+*/
+//-----------------------------------------------------

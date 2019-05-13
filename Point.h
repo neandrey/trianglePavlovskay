@@ -1,8 +1,8 @@
 // Point.h
 #ifndef POINT_H
 #define POINT_H
-enum ORIENT {LEFT, RIGHT, AHEAD, BEHIND, BETWEEN };
-class Triangle;
+//enum ORIENT {LEFT, RIGHT, AHEAD, BEHIND, BETWEEN };
+//class Triangle;
 
 class Point{
   public:
@@ -14,9 +14,9 @@ class Point{
     void operator+= (Point&);
     Point operator+ (Point&);
     Point operator- (Point&);
-    double Length() ;
-    ORIENT Classify(Point&, Point&) ;
-    bool InTriangle(Triangle&) ; 
+    double Length() const ;
+ //  ORIENT Classify(Point&, Point&) const;
+ //  bool InTriangle(Triangle&) const; 
 };
 #endif
 //---------------------------
